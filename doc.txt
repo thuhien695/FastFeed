@@ -1,0 +1,72 @@
+1. Chức năng cho người dùng
+1.1. Đăng ký / Đăng nhập
+* Người dùng có thể đăng ký tài khoản bằng email và mật khẩu. (mật khẩu mã hóa bằng hàm password_hash)
+* Đăng nhập để sử dụng các chức năng bình luận
+
+1.2. Xem và tìm kiếm bài viết.
+* Tìm kiếm theo từ khóa (tiêu đề, nội dung).
+* Trang chủ hiển thị các bài viết mới nhất.
+
+1.3. Xem chi tiết bài viết
+* Xem nội dung đầy đủ, hình ảnh, thông tin người viết, bài viết liên quan.
+* Xem số lượt bình luận.
+
+1.4. Bình luận bài viết
+* Viết bình luận cho bài viết.(cần đăng nhập)
+* Bình luận có thể bị xóa bởi admin.
+
+2. Chức năng cho admin
+2.1. Quản lý bài viết
+* Tìm kiếm/ lọc bài viết theo từ khóa (tiêu đề, nội dung)
+* Xem danh sách bài viết.
+* Thêm, sửa bài viết (nội dung dùng ckediter)
+* Xem chi tiết bài viết
+* Xóa các bài viết
+
+2.2. Quản lý bình luận
+* Xem danh sách tất cả bình luận.
+* Tìm kiếm/lọc bài viết theo từ khóa (tên bài viết, tên người dùng)
+* Xóa bình luận vĩnh viễn.
+
+Các bảng cở sở dữ liệu
+user: chứa thông tin người dùng (id, fullname, email, password, role)
+post: chứa thông tin bài viết(id, name, content)
+comments: chứa thông tin bình luận (id, post_id, user_id, content)
+
+## Công nghệ sử dụng
+- PHP thuần
+- MySQL (sử dụng MySQLi)
+- Bootstrap 5
+- jQuery & AJAX
+- CKEditor (cho định dạng văn bản phong phú)
+- Font Awesome (cho các biểu tượng)
+
+- **Admin:**
+  - Email: admin@gmail.com
+  - Mật khẩu: 123123
+
+- **Người dùng:**
+  - Email: user@gmail.com
+  - Mật khẩu: 123123
+
+## Cấu trúc thư mục
+FastFeed/
+├── admin/             # Phần quản trị
+│   ├── includes/      # Header, footer của admin
+│   ├── index.php      # Trang chủ admin
+│   └── posts.php      # Quản lý bài viết
+├── assets/            # Tài nguyên tĩnh
+│   ├── css/           # File CSS
+│   ├── js/            # File JavaScript
+│   └── images/        # Hình ảnh hệ thống và bài viết
+├── config/            # Cấu hình
+│   └── init.php       # Khởi tạo ứng dụng
+├── includes/          # Thành phần dùng chung
+│   ├── header.php     # Header trang
+│   └── footer.php     # Footer trang
+├── models/            # Mô hình dữ liệu
+│   ├── User.php       # Xử lý người dùng
+│   ├── Post.php       # Xử lý bài viết
+│   └── Comment.php    # Xử lý bình luận
+├── database.sql       # File SQL tạo cơ sở dữ liệu
+├── index.php          # Trang chủ
